@@ -4,10 +4,7 @@ import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,12 @@ public class UserController {
 
     @GetMapping("/get")
     public ResponseEntity<List<User>> getUsers(@RequestParam("name") String name) {
-        return ResponseEntity.ok(userRepository.findByName(name));
+        var usersList   = userRepository.findByName(name);
+        return ResponseEntity.ok(usersList);
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        return ResponseEntity.ok(userRepository.save(user));
     }
 }

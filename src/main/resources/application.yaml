@@ -1,4 +1,6 @@
+
 spring:
+  jackson.default-property-inclusion: NON_EMPTY
   datasource:
     url: jdbc:h2:mem:mydb
     username: sa
@@ -6,6 +8,10 @@ spring:
     driverClassName: org.h2.Driver
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    spring.jpa.properties.hibernate:
+      jdbc.batch_size: 20
+      order_inserts: true
   h2:
     console:
       enabled: true
@@ -13,3 +19,4 @@ spring:
       settings:
         trace: true
         web-allow-others: true
+
