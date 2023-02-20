@@ -22,3 +22,12 @@ spring:
 
 
   #Azure Cloud
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources[0]:
+            credential.client-id: client_ID
+            credential.client-secret: CLIENT_SECRET
+            endpoint: https://???????.vault.azure.net/
+            profile.tenant-id: TENANT_ID
