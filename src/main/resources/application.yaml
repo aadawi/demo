@@ -20,3 +20,18 @@ spring:
         trace: true
         web-allow-others: true
 
+
+  #Azure Cloud
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-sources[0]:
+            credential.client-id: 08fa5d8d-b772-4e85-992b-723cd05de937
+            credential.client-secret: BNF8Q~.fwDkZM4urwfCyssfx0cVJ33AJmygSib_y
+            endpoint: https://pnl-key-vault.vault.azure.net/
+            profile.tenant-id: b5cac0bb-37f2-4c99-9b26-a78ba82493d8
+      storage:
+        blob:
+          endpoint:  https://adsazuksuatdatalake.blob.core.windows.net
+          sas-token: ${storage-sas-token}
